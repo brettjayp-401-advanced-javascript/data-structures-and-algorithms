@@ -31,7 +31,7 @@ Return the modified array.
 const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, callback) => {
-  for(let i = 0; i < times; i++){callback(arr, num)};
+  for(let i = 0; i < times; ++i){callback(arr, num)};
   return arr;
 };
 
@@ -48,11 +48,12 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
+  if(num % 3 === 2){arr.pop()}
 };
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
+  arr.forEach(value => callback(value, arr));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
