@@ -52,7 +52,10 @@ const removeOne = (num, arr) => {
 };
 
 const removeElements = (arr, callback) => {
-  arr.forEach(value => callback(value, arr));
+  for(let i = 0; i < arr.length; ++i){
+    callback(arr[i], arr);
+  };
+  // arr.forEach(value => callback(value, arr));
   return arr;
 };
 
