@@ -41,9 +41,6 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => obj.yearBorn = year;
-// {
-//   // Solution code here...
-// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -58,9 +55,7 @@ setStatusAsAuthor(people);
 console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
-const setStatusAsAuthor = (people) => {
-  // Solution code here...
-};
+const setStatusAsAuthor = (people) => people.forEach(obj => obj.isAuthor = true);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
