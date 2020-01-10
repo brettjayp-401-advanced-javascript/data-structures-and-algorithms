@@ -18,7 +18,7 @@ In this alphabetization, capital letters come before lower case letters.
 For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetize = (arr) => arr.sort();
+const alphabetize = arr => arr.sort();
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -26,9 +26,7 @@ CHALLENGE 3
 Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortByLength = (arr) => {
-  // Solution code here...
-};
+const sortByLength = arr => arr.sort((a,b) => a.length - b.length);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
