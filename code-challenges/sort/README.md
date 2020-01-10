@@ -1,5 +1,4 @@
-
-Code Challenge 03: Sort
+# Code Challenge 03: Sort
 Overview
 
 Read this overview.
