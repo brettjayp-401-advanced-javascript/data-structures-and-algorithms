@@ -81,9 +81,7 @@ const people = [
   new Person('Stan', 'Seattle', 67),
 ];
 
-const sortPeople = (arr) => {
-  // Solution code here...
-};
+const sortPeople = arr => arr.sort((a,b) => a.lastName.toUpperCase() > b.lastName.toUpperCase());
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
