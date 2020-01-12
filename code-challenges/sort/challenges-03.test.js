@@ -81,8 +81,7 @@ const people = [
   new Person('Stan', 'Seattle', 67),
 ];
 
-const sortPeople = arr => arr.sort((a,b) => a.lastName.toUpperCase() > b.lastName.toUpperCase());
-// const sortPeople = arr => arr.sort((a,b) => a.lastName > b.lastName);
+const sortPeople = arr => arr.sort((a,b) => a.lastName > b.lastName ? 1 : (a.lastName < b.lastName) ? -1 : 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -211,7 +210,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
@@ -223,7 +222,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-describe('Testing challenge 8', () => {
+xdescribe('Testing challenge 8', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
