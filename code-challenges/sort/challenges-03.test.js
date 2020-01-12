@@ -93,9 +93,15 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
-  // Solution code here...
-};
+const sortPeopleBetter = arr => arr.sort((a,b) =>
+  a.lastName > b.lastName ? 1 
+  : (a.lastName < b.lastName) ? -1 
+  : (a.firstName > b.firstName) ? 1
+  : (a.firstName < b.firstName) ? -1
+  : (a.age > b.age) ? 1
+  : (a.age < b.age) ? -1
+  : 0 
+  );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -210,7 +216,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-describe('Testing challenge 7', () => {
+xdescribe('Testing challenge 7', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
@@ -222,7 +228,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
