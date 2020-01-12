@@ -93,15 +93,7 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = arr => arr.sort((a,b) =>
-  a.lastName > b.lastName ? 1 
-  : (a.lastName < b.lastName) ? -1 
-  : (a.firstName > b.firstName) ? 1
-  : (a.firstName < b.firstName) ? -1
-  : (a.age > b.age) ? 1
-  : (a.age < b.age) ? -1
-  : 0 
-  );
+const sortPeopleBetter = arr => arr.sort((a,b) => a.lastName > b.lastName ? 1 : (a.lastName < b.lastName) ? -1 : (a.firstName > b.firstName) ? 1 : (a.firstName < b.firstName) ? -1 : (a.age > b.age) ? 1 : (a.age < b.age) ? -1 : 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -125,9 +117,15 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
-const sortMeetingsByDay = (arr) => {
-
+const days = {
+  'Monday': 1,
+  'Tuesday': 2,
+  'Wednesday': 3,
+  'Thursday': 4,
+  'Friday': 5
 };
+
+const sortMeetingsByDay = arr => arr.sort((a,b) => days[a.dayOfWeek] > days[b.dayOfWeek] ? 1 : (days[a.dayOfWeek] < days[b.dayOfWeek]) ? -1 : 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -228,7 +226,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-describe('Testing challenge 8', () => {
+xdescribe('Testing challenge 8', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
@@ -249,7 +247,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0,2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
