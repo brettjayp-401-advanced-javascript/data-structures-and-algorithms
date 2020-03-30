@@ -4,7 +4,7 @@ class Node {
   constructor(val){
     this.val = val;
     this.next = null; // A pointer to the next Node in the list.
-    // prev - A pointer to the previous Node in the list (for use in stretch goal implementation).
+    this.prev = null; // A pointer to the previous Node in the list (for use in stretch goal implementation).
   };
 };
 
@@ -41,19 +41,64 @@ class LinkedList {
     let pos = this.head;
     let out = '';
     while(pos != null){
-      out += `{ ${pos.val} } `;
+      out += `{ ${pos.val} } -> `;
       pos = pos.next;
-    }
+    };
+    out += 'NULL';
     console.log(out);
   };
 };
 
-class DoublyLinkedList { // stretch goal
-  constructor(){};
+class DoublyLinkedList {
+  constructor(head){
+    this.head = head;
+    this.size = 0;
+  };
 
-  insert(){};
+  sizeOf(){
+    return this.size;
+  }
 
-  includes(){};
+  insertAtHead(val){
+    let node = new Node(val);
+    if(this.head != null){
+      this.head.prev = node;
+    }else{this.tail = node};
+    node.next = this.head;
+    this.head = node;
+    this.size++;
+  };
 
-  toString(){};
+  includes(val){
+    let pos = this.head;
+    while(pos != null){
+      if(pos.val === val){return true;}
+      pos = pos.next;
+    }
+    return false;
+  };
+
+  toStringNext(){
+    let pos = this.head;
+    let out = '';
+    while(pos != null){
+      out += `{ ${pos.val} } -> `;
+      pos = pos.next;
+    };
+    out += 'NULL';
+    console.log(out);
+  };
+
+  toStringPrev(){
+    let pos = this.head;
+    while(pos.next !== undefined){
+      pos = pos.next
+    };
+    let out = 'NULL';
+    while(pos != null){
+      out += ` <- { ${pos.val} }`;
+      pos = pos.prev;
+    };
+    console.log(out);
+  };
 };
