@@ -38,6 +38,13 @@ class LinkedList {
 
   toString(){
     // A function that takes no arguments but prints out a visual representation of the Linked List, similar to the format: { a } -> { b } -> { c } -> NULL.
+    let pos = this.head;
+    let out = '';
+    while(pos != null){
+      out += `{ ${pos.val} } `;
+      pos = pos.next;
+    }
+    console.log(out);
   };
 };
 
