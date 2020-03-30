@@ -10,7 +10,7 @@ class Node {
 
 class LinkedList {
   constructor(head){
-    this.head = head;
+    this.head = null;
     this.size = 0;
   };
 
@@ -21,7 +21,7 @@ class LinkedList {
   insert(val){
     // A function that takes any value as an argument and adds a new Node with that value to the beginning of the list (before the current head).
     let node = new Node(val);
-    node.next = this.head;
+    if(this.head != null){node.next = this.head};
     this.head = node;
     this.size++;
   };
@@ -90,10 +90,7 @@ class DoublyLinkedList {
   };
 
   toStringPrev(){
-    let pos = this.head;
-    while(pos.next !== undefined){
-      pos = pos.next
-    };
+    let pos = this.tail;
     let out = 'NULL';
     while(pos != null){
       out += ` <- { ${pos.val} }`;
