@@ -83,6 +83,7 @@ class LinkedList {
   insertAfter(value, newVal){
     let pos = this.head;
   }; 
+  
 };
 
 class DoublyLinkedList {
