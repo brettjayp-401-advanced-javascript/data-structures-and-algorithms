@@ -47,6 +47,42 @@ class LinkedList {
     out += 'NULL';
     console.log(out);
   };
+
+  append(value){
+    let pos = this.head;
+    while(pos.next != null){
+      pos=pos.next;
+    };
+    let node = new Node(value);
+    pos.next = node;
+    this.size++;
+  };
+
+  insertBefore(value, newVal){
+    let pos = this.head;
+    while(pos.next != null){
+      if(this.head.val == value){
+        let newNode = new Node(newVal);
+        newNode.next = pos;
+        this.head = newNode;
+        this.size++;
+        break;
+      }
+      if(pos.next.val == value){
+        let newNode = new Node(newVal);
+        newNode.next = pos.next;
+        pos.next = newNode;
+        this.size++;
+        break;
+      };
+      pos = pos.next;
+    };
+    return this.toString();
+  };
+
+  insertAfter(value, newVal){
+    let pos = this.head;
+  }; 
 };
 
 class DoublyLinkedList {
