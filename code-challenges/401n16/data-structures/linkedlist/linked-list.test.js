@@ -4,6 +4,6 @@
 
 describe('an empty test', () => {
   it('will pass', () => {
-    expect(true.toBeTrue())
+    expect(true.toBe(true))
   })
 })
