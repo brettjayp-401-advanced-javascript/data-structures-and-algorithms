@@ -2,8 +2,10 @@
 
 // let ll = require('linkedList');
 
+let troo = true;
+
 describe('an empty test', () => {
   it('will pass', () => {
-    expect(true.toBe(true))
+    expect(troo.toBeTruthy())
   })
 })
