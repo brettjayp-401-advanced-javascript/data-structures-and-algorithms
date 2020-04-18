@@ -1,5 +1,14 @@
 {
-  "name": "3-code-challenges",
+  "name": "code-challenges",
+  "dependencies": {
+    "jest": "^24.1.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "code-challenges/301",
+      "code-challenges/301n16"
+    ]
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +20,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "jest": "^24.1.0"
-  }
+  "license": "MIT"
 }
