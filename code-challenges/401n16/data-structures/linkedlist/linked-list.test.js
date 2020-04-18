@@ -2,8 +2,8 @@
 
 // let ll = require('linkedList');
 
-// describe('describe'){
-//   it('it', () => {
-//     expect(true.toBeTrue())
-//   })
-// }
+describe('an empty test'){
+  it('will pass', () => {
+    expect(true.toBeTrue())
+  })
+}
