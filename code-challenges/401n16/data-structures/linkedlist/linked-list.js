@@ -135,3 +135,5 @@ class DoublyLinkedList {
     console.log(out);
   };
 };
+
+module.exports = linkedList;
