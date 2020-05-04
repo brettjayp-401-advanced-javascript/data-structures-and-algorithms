@@ -29,7 +29,7 @@ describe('Functionality testing of Singly Linked Lists.', () => {
 
   });
 
-  describe('Working within a linked list, it...', () => {
+  describe('While working within a linked list, it...', () => {
 
     let list = new ll.LinkedList();
 
@@ -43,13 +43,25 @@ describe('Functionality testing of Singly Linked Lists.', () => {
       expect([list.head.val, list.head.next]).toStrictEqual([42, null]);
     });
 
-    // it('can insert multiple <Nodes> into the list successfully', () => {
-    //   expect(true).toBe(true);
-    // });
+    describe('can insert multiple <Nodes> into the list successfully...', () => {
+      
+      let vals = [7, 'foo', 255, 'bar', {'a': 127}, true, 'fizzbuzz',];
+      vals.forEach((val, ind, arr) => {
+        it(`inserting ${val}`, () => {
+          list.insert(val);
+          if(list.sizeOf() === 2){
+            expect([list.head.val, list.head.next.val]).toStrictEqual([val, 42]);
+          }else{
+            expect([list.head.val, list.head.next.val]).toStrictEqual([val, arr[ind - 1]]);
+          };
+        });
+      });
 
-    // it('<includes()> function correctly finds a value in the list that exists', () => {
-    //   expect(true).toBe(true);
-    // });
+    });
+
+    it('<includes()> function correctly finds a value in the list that exists', () => {
+      expect(list.includes('fizzbuzz')).toStrictEqual(true);
+    });
 
     // it('<includes()> function correctly returns false when a value is not in the list', () => {
     //   expect(true).toBe(true);

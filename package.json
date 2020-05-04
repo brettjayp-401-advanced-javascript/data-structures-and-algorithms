@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint **/*.js",
-    "test": "jest --verbose --coverage --passWithNoTests",
+    "test": "jest --verbose --coverage --passWithNoTests --runInBand",
     "test-watch": "jest --watchAll --verbose --coverage"
   },
   "keywords": [],
