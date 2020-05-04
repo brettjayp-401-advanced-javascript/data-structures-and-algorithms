@@ -1,16 +1,24 @@
 {
-  "name": "3-code-challenges",
+  "name": "code-challenges",
+  "dependencies": {
+    "jest": "^24.1.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "code-challenges/301",
+      "code-challenges/301n16"
+    ]
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --verbose",
-    "watch": "jest --watchAll"
+    "start": "node index.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage --passWithNoTests --runInBand",
+    "test-watch": "jest --watchAll --verbose --coverage"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "jest": "^24.1.0"
-  }
+  "license": "MIT"
 }
