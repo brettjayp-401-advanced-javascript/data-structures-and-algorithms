@@ -59,17 +59,17 @@ describe('Functionality testing of Singly Linked Lists.', () => {
 
     });
 
-    it('<includes()> function correctly finds a value in the list that exists', () => {
-      expect(list.includes('fizzbuzz')).toStrictEqual(true);
+    it('<includes()> function correctly finds a value <{\'a\': 127}> in the list that exists', () => {
+      expect(list.includes({'a': 127})).toStrictEqual(true);
     });
 
-    // it('<includes()> function correctly returns false when a value is not in the list', () => {
-    //   expect(true).toBe(true);
-    // });
+    it('<includes()> function correctly returns false when a value <\'batman\'> is not in the list', () => {
+      expect(list.includes('batman')).toStrictEqual(false);
+    });
 
-    // it('<toString()> function prints out your LinkedList in an expected way', () => {
-    //   expect(true).toBe(true);
-    // });
+    it('<toString()> function prints out your LinkedList in an expected way', () => {
+      expect(list.toString()).toStrictEqual('{ fizzbuzz } -> { true } -> { [Object object] } -> { bar } -> { 255 } -> { foo } -> { 7 } -> { 42 } -> NULL');
+    });
 
   });
 
