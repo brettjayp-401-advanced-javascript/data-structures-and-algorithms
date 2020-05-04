@@ -99,3 +99,5 @@ class DoublyLinkedList {
     console.log(out);
   };
 };
+
+module.exports = {Node, LinkedList, DoublyLinkedList};
