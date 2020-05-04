@@ -6,7 +6,7 @@
 
 ###[arrayReverse](/code-challenges/401n16/arrayReverse/README-arrayReverse.md)
 
-### arrayShift
+###[arrayShift](/code-challenges/401n16/arrayReverse/README-arrayShift.md)
 
 ### arrayBinarySearch
 
