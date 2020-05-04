@@ -8,6 +8,6 @@ describe('an empty test', () => {
   })
 })
 
-describe('linked lists creation', () => {
-  it('')
-})
+// describe('linked lists creation', () => {
+//   it('')
+// })
