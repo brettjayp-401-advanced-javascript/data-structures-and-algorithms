@@ -60,12 +60,16 @@ class LinkedList {
 
   append(value){
     let pos = this.head;
-    while(pos.next != null){
-      pos=pos.next;
+    if(pos !== null){
+      while(pos.next != null){
+        pos=pos.next;
+      };
+      let node = new Node(value);
+      pos.next = node;
+      this.size++;
+    }else{
+      this.insert(value);
     };
-    let node = new Node(value);
-    pos.next = node;
-    this.size++;
   };
 
   insertBefore(value, newVal){
@@ -87,11 +91,25 @@ class LinkedList {
       };
       pos = pos.next;
     };
-    return this.toString();
   };
 
   insertAfter(value, newVal){
     let pos = this.head;
+    while(pos.next !== null){
+      if(pos.val == value){
+        let newNode = new Node(newVal);
+        newNode.next = pos.next;
+        pos.next = newNode;
+        this.size++;
+        break;
+      }else if(pos.next.next === null){
+        let newNode = new Node(newVal);
+        pos.next.next = newNode;
+        this.size++;
+        break;
+      };
+      pos = pos.next;
+    };
   }; 
 };
 
