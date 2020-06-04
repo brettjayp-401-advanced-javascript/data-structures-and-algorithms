@@ -1,15 +1,56 @@
 'use strict';
 
+// const binarySearch = (arr, key) => {
+//   const arrSize = arr.length;
+//   let slice = 2;
+//   let midVal = arr[Math.floor(arrSize / slice)];
+//   let min = 0;
+//   let max = 0;
+
+//   if(typeof key !== 'number'){
+//     console.log(`The value ${key} is not a number.`);
+//     return -1;
+//   }else if(typeof arr !== 'array'){
+//     console.log('The input object is not an array.');
+//     return -1;
+//   }else if(arr.sort() !== arr){
+//     console.log('The input array is not a sorted array.')
+//   }else if(key < arr[0] || key > arr[arr.length - 1]){
+//     return -1;
+//   }else if(midVal === key){
+//     return Math.floor(arrSize / slice);
+//   }else if(key < midVal){
+//     return searchBottom(arr, key, arrSize, slice, min, max);
+//   }else if(key > midVal){
+//     return searchTop(arr, key, arrSize, slice, min, max);
+//   }else{
+//     console.log('Whoa something went wrong!');
+//     return -1;
+//   };
+
+// };
+
 const binarySearch = (arr, key) => {
+
+  if(typeof key !== 'number' || typeof arr !== 'object' || arr.sort() !== arr){
+    if(typeof key !== 'number'){
+      console.log(`The value ${key} is not a number.`);
+      return -1;
+    }else if(typeof arr !== 'array'){
+      console.log('The input object is not an array.');
+      return -1;
+    }else if(arr.sort() !== arr){
+      console.log('The input array is not a sorted array.')
+    };
+  };
+
   const arrSize = arr.length;
   let slice = 2;
   let midVal = arr[Math.floor(arrSize / slice)];
-  let min = max = 0;
+  let min = 0;
+  let max = 0;
 
-  if(typeof key !== 'number'){
-    console.log(`The value ${key} is not a number.`);
-    return -1;
-  }else if(key < arr[0] || key > arr[arr.length - 1]){
+  if(key < arr[0] || key > arr[arr.length - 1]){
     return -1;
   }else if(midVal === key){
     return Math.floor(arrSize / slice);
@@ -21,7 +62,6 @@ const binarySearch = (arr, key) => {
     console.log('Whoa something went wrong!');
     return -1;
   };
-
 };
 
 const searchBottom = (arr, key, arrSize, slice, min, max) => {
