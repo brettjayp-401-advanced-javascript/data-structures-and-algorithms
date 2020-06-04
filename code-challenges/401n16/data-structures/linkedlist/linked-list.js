@@ -29,6 +29,12 @@ class LinkedList {
   includes(val){
     // A function that takes in a value as an argument and returns true or false if that value was found in the list.
     let pos = this.head;
+    if(typeof val === 'object'){
+      while(pos != null){
+        if(JSON.stringify(pos.val) === JSON.stringify(val)){return true;}
+        pos = pos.next;
+      };
+    };
     while(pos != null){
       if(pos.val === val){return true;}
       pos = pos.next;
@@ -41,11 +47,15 @@ class LinkedList {
     let pos = this.head;
     let out = '';
     while(pos != null){
-      out += `{ ${pos.val} } -> `;
+      if(typeof pos.val !== 'object'){
+        out += `{ ${pos.val} } -> `;
+      }else if(typeof pos.val === 'object'){
+        out += '{ [Object object] } -> ';
+      };
       pos = pos.next;
     };
     out += 'NULL';
-    console.log(out);
+    return out;
   };
 
   append(value){
@@ -136,4 +146,4 @@ class DoublyLinkedList {
   };
 };
 
-module.exports = linkedList;
+module.exports = {Node, LinkedList, DoublyLinkedList};
