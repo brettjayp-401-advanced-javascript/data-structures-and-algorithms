@@ -32,15 +32,22 @@
 
 const binarySearch = (arr, key) => {
 
-  if(typeof key !== 'number' || typeof arr !== 'object' || arr.sort() !== arr){
+  if(typeof key !== 'number' || typeof arr !== 'object'){
     if(typeof key !== 'number'){
       console.log(`The value ${key} is not a number.`);
       return -1;
-    }else if(typeof arr !== 'array'){
+    }else if(typeof arr !== 'object'){
       console.log('The input object is not an array.');
       return -1;
-    }else if(arr.sort() !== arr){
-      console.log('The input array is not a sorted array.')
+    };
+  }else{
+    let sorted = arr.slice(0);
+    sorted = sorted.sort((a,b) => {
+      return a - b;
+    });
+    if(JSON.stringify(sorted) !== JSON.stringify(arr)){
+      console.log('The input array is not a sorted array.');
+      return -1;
     };
   };
 
