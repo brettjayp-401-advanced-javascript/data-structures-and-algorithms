@@ -59,9 +59,10 @@ class Queue {
       let newNode = new Node(val);
       if(!this.front){
         this.front = newNode;
+        this.front.next = newNode;
         this.back = newNode;
       }else{
-        this.back.next = this.back;
+        this.back.next = newNode;
         this.back = newNode;
       };
     }
@@ -71,15 +72,36 @@ class Queue {
   };
 
   dequeue(){
-    ;
+    try{
+      if(this.front === null){
+        throw 'no front of queue';
+      }else{
+        let front = this.front.val;
+        this.front = this.front.next;
+        return front;
+      };
+    }
+    catch(e){
+      throw e;
+    };
   };
 
   peek(){
-    ;
+    try{
+      ;
+    }
+    catch(e){
+      throw e.message;
+    };
   };
 
   isEmpty(){
-    ;
+    try{
+      ;
+    }
+    catch(e){
+      throw e.message;
+    };
   };
 };
 
