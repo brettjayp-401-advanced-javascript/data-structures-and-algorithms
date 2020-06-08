@@ -73,4 +73,65 @@ describe('Functionality testing of Singly Linked Lists.', () => {
 
   });
 
+  describe('can insert new nodes before and after a found value, and append to the end...', () => {
+    
+    let list = new ll.LinkedList();
+
+    it('<append()> function can successfully add a node to the end of an empty linked list', () => {
+      list.append('fizzbuzz');
+      expect(list.toString()).toStrictEqual('{ fizzbuzz } -> NULL');
+    });
+
+    it('<append()> function can successfully add multiple nodes to the end of a linked list', () => {
+      list.append(true);
+      list.append('bar');
+      list.append(255);
+      list.append('foo');
+      list.append(7);
+      list.append('fizz');
+      expect(list.toString()).toStrictEqual('{ fizzbuzz } -> { true } -> { bar } -> { 255 } -> { foo } -> { 7 } -> { fizz } -> NULL');
+    });
+
+    it('<insertBefore()> function can successfully insert a node before a node located in the middle of a linked list', () => {
+      list.insertBefore(255, 'buzz');
+      expect(list.toString()).toStrictEqual('{ fizzbuzz } -> { true } -> { bar } -> { buzz } -> { 255 } -> { foo } -> { 7 } -> { fizz } -> NULL');
+    });
+
+    it('<insertBefore()> function can successfully insert a node before the first node of a linked list', () => {
+      list.insertBefore('fizzbuzz', 'code');
+      expect(list.toString()).toStrictEqual('{ code } -> { fizzbuzz } -> { true } -> { bar } -> { buzz } -> { 255 } -> { foo } -> { 7 } -> { fizz } -> NULL');
+    });
+
+    it('<insertAfter()> function can successfully insert a node after a node in the middle of the linked list', () => {
+      list.insertAfter('bar', 'foobar');
+      expect(list.toString()).toStrictEqual('{ code } -> { fizzbuzz } -> { true } -> { bar } -> { foobar } -> { buzz } -> { 255 } -> { foo } -> { 7 } -> { fizz } -> NULL');
+    });
+
+    it('<insertAfter()> function can successfully insert a node after the last node of the linked list', () => {
+      list.insertAfter('fizz', 77);
+      expect(list.toString()).toStrictEqual('{ code } -> { fizzbuzz } -> { true } -> { bar } -> { foobar } -> { buzz } -> { 255 } -> { foo } -> { 7 } -> { fizz } -> { 77 } -> NULL');
+    });
+
+  });
+
+  describe('can delete a node with the given value from the linked list...', () => {
+
+    let list = new ll.LinkedList();
+    list.insert(42);
+    list.insert('foobar');
+    list.insert(true);
+    list.insert('fizzbuzz');
+
+    it('<remove()> function can successfully remove a node that exists, tested by calling <includes()>', () => {
+      list.remove(true);
+      expect(list.includes(true)).toStrictEqual(false);
+    });
+
+    it('<remove()> function will not remove a node if the provided value does not exist, tested by calling <toString()>', () => {
+      list.remove('code');
+      expect(list.toString()).toStrictEqual('{ fizzbuzz } -> { foobar } -> { 42 } -> NULL');
+    });
+
+  });
+
 });
