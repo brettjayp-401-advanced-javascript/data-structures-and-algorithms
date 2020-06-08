@@ -149,6 +149,19 @@ class LinkedList {
   };
 };
 
+const mergeLists = function(listA, listB){
+  let list = new LinkedList();
+  let sizeIn = listA.sizeOf() >= listB.sizeOf() ? listA.sizeOf() : listB.sizeOf();
+  let posA = listA.head;
+  let posB = listB.head;
+  for(let i = 0; i < sizeIn; ++i){
+    if(i < listA.sizeOf()){list.insert(listA.kthFromEnd(i))};
+    if(i < listB.sizeOf()){list.insert(listB.kthFromEnd(i))};
+  };
+  console.log(list.toString());
+  return list;
+};
+
 class DoublyLinkedList {
   constructor(head){
     this.head = head;
@@ -200,4 +213,4 @@ class DoublyLinkedList {
   };
 };
 
-module.exports = {Node, LinkedList, DoublyLinkedList};
+module.exports = {Node, LinkedList, DoublyLinkedList, mergeLists};

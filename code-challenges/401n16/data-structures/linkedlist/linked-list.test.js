@@ -166,4 +166,27 @@ describe('Functionality testing of Singly Linked Lists.', () => {
 
   });
 
+  describe('merge', () => {
+
+    let listA = new ll.LinkedList();
+    listA.insert('aa');
+    listA.insert(11);
+    let listB = new ll.LinkedList();
+    listB.insert(22);
+    listB.insert('bb');
+    listB.insert(33);
+    listB.insert('cc');
+
+    it('merges listA listB, includes 22', () => {
+      let list = ll.mergeLists(listA, listB);
+      expect(list.includes(22)).toStrictEqual(true);
+    });
+
+    it('merges listA listB, toString', () => {
+      let list = ll.mergeLists(listA, listB);
+      expect(list.toString()).toStrictEqual('{ cc } -> { 33 } -> { bb } -> { 11 } -> { 22 } -> { aa } -> NULL');
+    })
+
+  })
+
 });
