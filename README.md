@@ -14,6 +14,8 @@
 
 ###[stacksAndQueues](/code-challenges/401n16/data-structures/stacksAndQueues/README-stacksAndQueues.md)
 
+###[fifoAnimalShelter](/code-challenges/401n16/fifoAnimalShelter/README-fifoAnimalShelter.md)
+
 
 
 ## 301n16
