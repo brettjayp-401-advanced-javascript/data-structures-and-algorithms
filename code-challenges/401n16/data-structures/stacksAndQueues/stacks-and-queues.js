@@ -25,6 +25,7 @@ class Stack {
       if(this.size === 0){throw 'size is 0'};
       let top = this.top;
       this.top = this.top.next;
+      this.size--;
       return top.val;
     }
     catch(e){
@@ -34,7 +35,6 @@ class Stack {
 
   peek(){
     try{
-      // if(this.size === 0){throw new Error('size is 0')};
       if(this.size === 0){throw 'size is 0'};
       return this.top.val;
     }
@@ -52,23 +52,27 @@ class Queue {
   constructor(){
     this.front = null;
     this.back = null;
+    this.size = 0;
   };
 
   enqueue(val){
-    try{
-      let newNode = new Node(val);
-      if(!this.front){
-        this.front = newNode;
-        this.front.next = newNode;
-        this.back = newNode;
-      }else{
-        this.back.next = newNode;
-        this.back = newNode;
+    Array.prototype.slice.call(arguments, 0).forEach(arg => {
+      try{
+        let newNode = new Node(arg);
+        if(!this.front){
+          this.front = newNode;
+          this.front.next = newNode;
+          this.back = newNode;
+        }else{
+          this.back.next = newNode;
+          this.back = newNode;
+        };
+        this.size++;
+      }
+      catch(e){
+        throw e.message;
       };
-    }
-    catch(e){
-      throw e.message;
-    };
+    });
   };
 
   dequeue(){
@@ -76,6 +80,7 @@ class Queue {
       if(!this.front){throw 'no front of queue'};
       let front = this.front.val;
       this.front = this.front.next;
+      this.size--;
       return front;
     }
     catch(e){
@@ -95,7 +100,7 @@ class Queue {
 
   isEmpty(){
     try{
-      ;
+      return this.size < 1 ? true : false;
     }
     catch(e){
       throw e;

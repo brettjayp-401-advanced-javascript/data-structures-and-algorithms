@@ -12,6 +12,8 @@
 
 ###[linkedLists](/code-challenges/401n16/data-structures/linkedlist/README-linkedList.md)
 
+###[stacksAndQueues](/code-challenges/401n16/data-structures/stacksAndQueues/README-stacksAndQueues.md)
+
 
 
 ## 301n16

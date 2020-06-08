@@ -2,67 +2,117 @@
 
 const sq = require('./stacks-and-queues.js');
 
-describe('stacks and queues', () => {
+describe('stacks and queues...', () => {
 
-  describe('stacks', () => {
+  describe('stacks...', () => {
 
-    let stack = new sq.Stack();
-  
-    it('push() 22', () => {
-      stack.push(22);
-      expect(stack.top.val).toStrictEqual(22);
+    let stackA = new sq.Stack();
+    let stackB = new sq.Stack();
+    let stackEmpty = new sq.Stack();
+
+    describe('push()...', () => {
+
+      it('... \'22\', top should match \'22\'', () => {
+        stackA.push(22);
+        expect(stackA.top.val).toStrictEqual(22);
+      });
+    
+      it('... \'bb\', top should match \'bb\'', () => {
+        stackA.push('bb');
+        expect(stackA.top.val).toStrictEqual('bb');
+      });
+      
+      it('... stack size should now be 6 after calling push() 4 more times', () => {
+        stackB.push(22);
+        stackB.push('bb');
+        stackB.push(22);
+        stackB.push('bb');
+        stackB.push(22);
+        stackB.push('bb');
+        expect(stackB.size).toStrictEqual(6);
+      });
+      
     });
-  
-    it('push() \'bb\'', () => {
-      stack.push('bb');
-      expect(stack.top.val).toStrictEqual('bb');
+
+    describe('pop()...', () => {
+
+      it('... returned value should be \'bb\'', () => {
+        expect(stackA.pop()).toStrictEqual('bb');
+      });
+    
+      it('... on an empty stack should throw error', () => {
+        expect(() => {stackEmpty.pop()}).toThrowError('size is 0');
+      });
+
+      it('... can successfully empty a full stack', () => {
+        stackB.pop();
+        stackB.pop();
+        stackB.pop();
+        stackB.pop();
+        stackB.pop();
+        stackB.pop();
+        expect(stackB.size).toStrictEqual(0);
+      });
+      
     });
-  
-    it('stacks()', () => {
-      expect(stack.size).toStrictEqual(2);
+
+    describe('peek()...', () => {
+      
+      it('... should return value \'22\'', () => {
+        expect(stackA.peek()).toStrictEqual(22);
+      });
+    
+      it('... on an empty stack should throw error', () => {
+        expect(() => {stackEmpty.peek()}).toThrowError('size is 0');
+      });
+      
     });
-  
-    it('pop()', () => {
-      expect(stack.pop()).toStrictEqual('bb');
-    });
-  
-    it('pop() on empty', () => {
-      let stackEmpty = new sq.Stack();
-      expect(() => {stackEmpty.pop()}).toThrowError('size is 0');
-    });
-  
-    it('peek()', () => {
-      expect(stack.peek()).toStrictEqual(22);
-    });
-  
-    it('peek() on empty', () => {
-      let stackEmpty = new sq.Stack();
-      expect(() => {stackEmpty.peek()}).toThrowError('size is 0');
-    });
-  
-    it('isEmpty()', () => {
-      expect(stack.isEmpty()).toStrictEqual(false);
-    });
-  
-    it('isEmpty() on empty', () => {
-      let stackEmpty = new sq.Stack();
-      expect(stackEmpty.isEmpty()).toStrictEqual(true);
+
+    describe('isEmpty()...', () => {
+
+      it('... should return false on a populated stack', () => {
+        expect(stackA.isEmpty()).toStrictEqual(false);
+      });
+    
+      it('... should return true on an empty stack', () => {
+        expect(stackEmpty.isEmpty()).toStrictEqual(true);
+      });
+      
     });
 
   });
 
-  describe('queues', () => {
+  describe('queues...', () => {
 
     let queue = new sq.Queue();
+    let queueEmpty = new sq.Queue();
+    let queueMulti = new sq.Queue();
 
-    it('enqueue() \'abc\', front should match', () => {
-      queue.enqueue('abc');
-      expect(queue.front.val).toStrictEqual('abc');
-    });
+    describe('enqueue()...', () => {
 
-    it('enqueue() \'def\', back should be \'abc\'', () => {
-      queue.enqueue('def');
-      expect(queue.back.val).toStrictEqual('def');
+      it('... \'abc\', front should match \'abc\'', () => {
+        queue.enqueue('abc');
+        expect(queue.front.val).toStrictEqual('abc');
+      });
+
+      it('... back should match \'abc\'', () => {
+        expect(queue.back.val).toStrictEqual('abc');
+      });
+  
+      it('... \'def\', front should match \'abc\'', () => {
+        queue.enqueue('def');
+        expect(queue.front.val).toStrictEqual('abc');
+      });
+  
+      it('... back should match \'def\'', () => {
+        expect(queue.back.val).toStrictEqual('def');
+      });
+
+      it('... can successfully enqueue multiple itmes in one call', () => {
+        queueMulti.enqueue('aa', 'bb', 'cc', 11, 22, 33, 'abc');
+        expect(queueMulti.size).toStrictEqual(7);
+      });
+
     });
 
     describe('dequeue()...', () => {
@@ -75,15 +125,41 @@ describe('stacks and queues', () => {
         expect(queue.front.val).toStrictEqual('def');
       });
 
+      it('... can succesfully empty a queue after several calls', () => {
+        queueMulti.dequeue();
+        queueMulti.dequeue();
+        queueMulti.dequeue();
+        queueMulti.dequeue();
+        queueMulti.dequeue();
+        queueMulti.dequeue();
+        queueMulti.dequeue();
+        expect(queueMulti.size).toStrictEqual(0);
+      });
+
     });
 
-    it('peek() on empty queue will throw', () => {
-      let queueEmpty = new sq.Queue();
-      expect(() => {queueEmpty.peek()}).toThrowError('no front of queue');
+    describe('peek()...', () => {
+
+      it('... on empty queue will throw', () => {
+        expect(() => {queueEmpty.peek()}).toThrowError('no front of queue');
+      });
+  
+      it('... should return \'def\'', () => {
+        expect(queue.peek()).toStrictEqual('def');
+      });
+      
     });
 
-    it('peek() should return \'def\'', () => {
-      expect(queue.peek()).toStrictEqual('def');
+    describe('isEmpty()...', () => {
+
+      it('... returns true when empty', () => {
+        expect(queueEmpty.isEmpty()).toStrictEqual(true);
+      });
+  
+      it('... returns false when queue is not empty', () => {
+        expect(queue.isEmpty()).toStrictEqual(false);
+      });
+      
     });
 
   });
