@@ -134,4 +134,36 @@ describe('Functionality testing of Singly Linked Lists.', () => {
 
   });
 
+  describe('can return a node that is $k from the end...', () => {
+
+    let list = new ll.LinkedList();
+    list.insert(42);
+    list.insert('foobar');
+    list.insert(true);
+    list.insert('fizzbuzz');
+    let listSize1 = new ll.LinkedList();
+    listSize1.insert('one');
+
+    it('<kthFromEnd()> function will throw the error \'$k is too big\' if value $k given is larger than the size of the list', () => {
+      expect(() => {list.kthFromEnd(8)}).toThrowError('$k is too big');
+    });
+
+    it('<kthFromEnd()> function will throw the error \'$k is too big\' if value $k given is the same as the length of the list', () => {
+      expect(() => {list.kthFromEnd(4)}).toThrowError('$k is too big');
+    });
+
+    it('<kthFromEnd()> function will throw the error \'$k must not be negative\' if value $k given is negative', () => {
+      expect(() => {list.kthFromEnd(-1)}).toThrowError('$k must not be negative');
+    });
+
+    it('<kthFromEnd()> function can successfully return the node that is $k positions from the end in a list with a size of 1', () => {
+      expect(listSize1.kthFromEnd(0)).toStrictEqual('one');
+    });
+
+    it('<kthFromEnd()> function can successfully return the node that is $k positions from the end, assuming $k is somewhere in between 0 and the length of the list', () => {
+      expect(list.kthFromEnd(2)).toStrictEqual(true);
+    });
+
+  });
+
 });

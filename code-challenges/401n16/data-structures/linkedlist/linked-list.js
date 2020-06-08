@@ -127,6 +127,26 @@ class LinkedList {
       pos = pos.next;
     };
   };
+
+  kthFromEnd(k){
+    try{
+      if(k >= this.size){throw new Error('$k is too big')};
+      if(k < 0){throw new Error('$k must not be negative')};
+      let pos = this.head;
+      if(k + 1 === this.size && pos !== null){
+        return pos.val;
+      }else{
+        let toK = this.size - k;
+        for(let i = 1; i < toK; ++i){
+          pos = pos.next;
+        };
+        return pos.val;
+      };
+    }
+    catch(e){
+      throw e;
+    };
+  };
 };
 
 class DoublyLinkedList {
