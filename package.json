@@ -6,7 +6,12 @@
   "jest": {
     "testPathIgnorePatterns": [
       "code-challenges/301",
-      "code-challenges/301n16"
+      "code-challenges/301n16",
+      "code-challenges/401n16/arrayBinarySearch",
+      "code-challenges/401n16/arrayReverse",
+      "code-challenges/401n16/arrayShift",
+      "code-challenges/401n16/data-structures",
+      "code-challenges/401n16/fifoAnimalShelter"
     ]
   },
   "version": "1.0.0",
