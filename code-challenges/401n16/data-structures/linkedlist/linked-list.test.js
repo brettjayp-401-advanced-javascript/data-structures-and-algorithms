@@ -114,4 +114,24 @@ describe('Functionality testing of Singly Linked Lists.', () => {
 
   });
 
+  describe('can delete a node with the given value from the linked list...', () => {
+
+    let list = new ll.LinkedList();
+    list.insert(42);
+    list.insert('foobar');
+    list.insert(true);
+    list.insert('fizzbuzz');
+
+    it('<remove()> function can successfully remove a node that exists, tested by calling <includes()>', () => {
+      list.remove(true);
+      expect(list.includes(true)).toStrictEqual(false);
+    });
+
+    it('<remove()> function will not remove a node if the provided value does not exist, tested by calling <toString()>', () => {
+      list.remove('code');
+      expect(list.toString()).toStrictEqual('{ fizzbuzz } -> { foobar } -> { 42 } -> NULL');
+    });
+
+  });
+
 });

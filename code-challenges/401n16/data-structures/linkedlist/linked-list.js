@@ -110,7 +110,23 @@ class LinkedList {
       };
       pos = pos.next;
     };
-  }; 
+  };
+
+  remove(val){
+    let pos = this.head;
+    while(pos.next != null){
+      if(typeof val === 'object'){
+        if(JSON.stringify(pos.next.val) === JSON.stringify(val)){
+          pos.next = pos.next.next;
+          return true;
+        };
+      }else if(pos.next.val === val){
+        pos.next = pos.next.next;
+        return true;
+      };
+      pos = pos.next;
+    };
+  };
 };
 
 class DoublyLinkedList {
