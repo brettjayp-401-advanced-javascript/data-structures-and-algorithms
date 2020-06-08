@@ -77,6 +77,15 @@ describe('stacks and queues', () => {
 
     });
 
+    it('peek() on empty queue will throw', () => {
+      let queueEmpty = new sq.Queue();
+      expect(() => {queueEmpty.peek()}).toThrowError('no front of queue');
+    });
+
+    it('peek() should return \'def\'', () => {
+      expect(queue.peek()).toStrictEqual('def');
+    });
+
   });
 
 });

@@ -73,13 +73,10 @@ class Queue {
 
   dequeue(){
     try{
-      if(this.front === null){
-        throw 'no front of queue';
-      }else{
-        let front = this.front.val;
-        this.front = this.front.next;
-        return front;
-      };
+      if(!this.front){throw 'no front of queue'};
+      let front = this.front.val;
+      this.front = this.front.next;
+      return front;
     }
     catch(e){
       throw e;
@@ -88,10 +85,11 @@ class Queue {
 
   peek(){
     try{
-      ;
+      if(!this.front){throw 'no front of queue'};
+      return this.front.val;
     }
     catch(e){
-      throw e.message;
+      throw e;
     };
   };
 
@@ -100,7 +98,7 @@ class Queue {
       ;
     }
     catch(e){
-      throw e.message;
+      throw e;
     };
   };
 };
