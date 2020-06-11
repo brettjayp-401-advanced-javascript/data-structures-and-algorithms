@@ -1,10 +1,10 @@
 'use strict';
 
 class Node {
-  constructor(val, left, right){
+  constructor(val){
     this.val = val;
-    this.left = left;
-    this.right = right;
+    this.left = null;
+    this.right = null;
   };
 };
 
@@ -13,16 +13,37 @@ class BinaryTree {
     this.root = null;
   };
 
-  preOrder(){ // A function that traverses the tree using preOrder depth-first traversal, and returns an array containing all the values in the traversed order
-    ;
+  preOrder(root = this.root){ // A function that traverses the tree using preOrder depth-first traversal, and returns an array containing all the values in the traversed order
+    if(!root){return};
+    let rootArr = [];
+    let left = [];
+    let right = [];
+    rootArr.push(root.val);
+    root.left ? left = this.preOrder(root.left) : true;
+    root.right ? right = this.preOrder(root.right) : true;
+    return [...rootArr, ...left, ...right];
   };
 
   inOrder(){ // A function that traverses the tree using inOrder depth-first traversal, and returns an array containing all the values in the traversed order
-    ;
+    if(!root){return};
+    let rootArr = [];
+    let left = [];
+    let right = [];
+    rootArr.push(root.val);
+    root.left ? left = this.inOrder(root.left) : true;
+    root.right ? right = this.inOrder(root.right) : true;
+    return [...left, ...rootArr, ...right];
   };
 
   postOrder(){ // A function that traverses the tree using postOrder depth-first traversal, and returns an array containing all the values in the traversed order
-    ;
+    if(!root){return};
+    let rootArr = [];
+    let left = [];
+    let right = [];
+    rootArr.push(root.val);
+    root.left ? left = this.preOrder(root.left) : true;
+    root.right ? right = this.preOrder(root.right) : true;
+    return [...left, ...right, ...rootArr];
   };
 };
 
