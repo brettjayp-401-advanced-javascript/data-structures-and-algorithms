@@ -16,6 +16,8 @@
 
 ###[fifoAnimalShelter](/code-challenges/401n16/fifoAnimalShelter/README-fifoAnimalShelter.md)
 
+###[multiBracketValidation](/code-challenges/401n16/multiBracketValidation/README-multiBracketValidation.md)
+
 
 
 ## 301n16
