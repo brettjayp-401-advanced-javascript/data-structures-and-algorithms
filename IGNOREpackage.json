@@ -11,7 +11,8 @@
       "code-challenges/401n16/arrayReverse",
       "code-challenges/401n16/arrayShift",
       "code-challenges/401n16/data-structures",
-      "code-challenges/401n16/fifoAnimalShelter"
+      "code-challenges/401n16/fifoAnimalShelter",
+      "code-challenges/401n16/multiBracketValidation"
     ]
   },
   "version": "1.0.0",
